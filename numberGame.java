@@ -10,18 +10,18 @@ public class numberGame {
         int Attempt=0;
         boolean playGame=true;
 
-        while(playGame){
-        while(Attempt<5){
+        while(playGame && Attempt<5){
         System.out.print("Enter your guessed number: ");
         int guess = input.nextInt();
         if(guess==targetNum)
         {
             System.out.println("Yeahh...you guessed the correct number.");
+            break;
         }
         else{
             System.out.println("Ohh sorry...you guessed the wrong.");
             if(guess<targetNum){
-                System.out.println("you guessed the lower number. Try Again!");
+                System.out.println("you guessed the lower number. Try Again!" + targetNum);
             }
             else{
                 System.out.println("you guessed the upper number. Try Again!");
@@ -31,16 +31,14 @@ public class numberGame {
         String playAgain = input.next();
         if(playAgain.equals("no")){
             System.out.println("Thanks for playing!!");
-            playGame=false;
+            break;
         }
         Attempt++;
-    }
+       
     if(Attempt==5){
         System.out.println("Sorry...you are out of attempts.\nThe target number is " + targetNum);
         break;
     }
 }
-
-
     }
 }
